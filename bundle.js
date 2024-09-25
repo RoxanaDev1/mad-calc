@@ -33865,7 +33865,7 @@ const ItemSelectOption = styled_components_1.default.option ``;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.foodApi = void 0;
-exports.foodApi = `${"http://localhost:8080"}/food`;
+exports.foodApi = `https://roxanadev1.github.io/mad-calc/food`;
 
 
 /***/ }),
