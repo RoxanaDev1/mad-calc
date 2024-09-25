@@ -6,10 +6,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "SET NODE_ENV=development & ts-node src/server/server.ts",
-    "start:prod": "SET NODE_ENV=production & ts-node src/server/server.ts",
-    "build:dev": "SET NODE_ENV=development & webpack",
-    "build:prod": "SET NODE_ENV=production & webpack",
+    "start": "ts-node src/server/server.ts",
+    "build": "webpack",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -17,15 +15,10 @@
   "license": "ISC",
   "devDependencies": {
     "@types/webpack": "^5.28.5",
-    "css-loader": "^7.1.2",
-    "dotenv-webpack": "^8.1.0",
     "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
-    "less": "^4.2.0",
-    "less-loader": "^12.2.0",
     "prettier": "^3.3.3",
     "source-map-loader": "^5.0.0",
-    "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",

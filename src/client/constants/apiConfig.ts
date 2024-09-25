@@ -1,1 +1,0 @@
-export const foodApi = `${process.env.DOMAIN_URL}/food`;

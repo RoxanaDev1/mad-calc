@@ -1,12 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 const CLIENT_DIR = path.join(__dirname, "./src/client");
 const BUILD_DIR = path.join(__dirname, "./build");
-
-const ENV = `${process.env.NODE_ENV}`;
-console.log("ENV:", ENV);
 
 module.exports = {
     entry: path.join(CLIENT_DIR, "index.tsx"), //Define the entry point for the project
@@ -15,8 +11,8 @@ module.exports = {
         path: BUILD_DIR
     },
 
-    mode: ENV === 'prod' ? 'production' : 'development',
-
+    mode: 'production',
+    
     target: 'node',
 
     // Enable sourcemaps for debugging webpack's output.
@@ -41,7 +37,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Mad Calc',
             template: path.join(CLIENT_DIR, "index.html")
-          }),
-        new Dotenv({path: path.resolve(__dirname, ENV === 'prod' ? '.env.prod' : '.env.dev' )})
+          })
     ]
 };
