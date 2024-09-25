@@ -33886,6 +33886,7 @@ const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules
 const client_1 = __importDefault(__webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js"));
 const App_1 = __webpack_require__(/*! ./App */ "./src/client/App.tsx");
 console.log("CURRENT ENV:", "http://localhost:8080");
+console.log("Deploy", 1);
 const root = client_1.default.createRoot(document.getElementById("appContainer"));
 root.render(react_1.default.createElement(react_1.default.StrictMode, null,
     react_1.default.createElement(App_1.App, null)));
