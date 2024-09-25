@@ -33664,15 +33664,6 @@ var f="undefined"!=typeof process&&void 0!==process.env&&(process.env.REACT_APP_
 
 "use strict";
 
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -33680,30 +33671,26 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.App = void 0;
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const react_2 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-const apiConfig_1 = __webpack_require__(/*! ./constants/apiConfig */ "./src/client/constants/apiConfig.ts");
 const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js"));
 const FoodRow_1 = __webpack_require__(/*! ./components/FoodRow */ "./src/client/components/FoodRow.tsx");
+const food_list_json_1 = __importDefault(__webpack_require__(/*! ../server/data/food-list.json */ "./src/server/data/food-list.json"));
 class App extends react_2.Component {
     constructor() {
         super({});
-        this.state = { food: undefined, selectedFood: [] };
+        this.state = { food: food_list_json_1.default, selectedFood: [] };
     }
-    //Lifecycle Methods
-    componentDidMount() {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield this.fetchData();
-        });
-    }
-    //REST Calls - If needed
-    fetchData() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const foodResponse = yield fetch(apiConfig_1.foodApi);
-            const data = yield foodResponse.json();
-            this.setState({
-                food: data,
-            });
-        });
-    }
+    // //Lifecycle Methods
+    // async componentDidMount(): Promise<void> {
+    //   await this.fetchData();
+    // }
+    // //REST Calls - If needed
+    // async fetchData(): Promise<void> {
+    //   const foodResponse = await fetch(foodApi);
+    //   const data: Food = await foodResponse.json();
+    //   this.setState({
+    //     food: data,
+    //   });
+    // }
     renderFoodRowList() {
         if (!this.state.food) {
             return;
@@ -33851,21 +33838,6 @@ exports.ItemSelect = ItemSelect;
 const ItemSelectContainer = styled_components_1.default.div ``;
 const ItemSelectBox = styled_components_1.default.select ``;
 const ItemSelectOption = styled_components_1.default.option ``;
-
-
-/***/ }),
-
-/***/ "./src/client/constants/apiConfig.ts":
-/*!*******************************************!*\
-  !*** ./src/client/constants/apiConfig.ts ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.foodApi = void 0;
-exports.foodApi = `https://roxanadev1.github.io/mad-calc/food`;
 
 
 /***/ }),
@@ -35429,6 +35401,17 @@ function __disposeResources(env) {
   __disposeResources,
 });
 
+
+/***/ }),
+
+/***/ "./src/server/data/food-list.json":
+/*!****************************************!*\
+  !*** ./src/server/data/food-list.json ***!
+  \****************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"categories":[{"name":"Vegetables","id":"1","category":"Vegetables","items":[{"name":"Carrot","id":"11","danish":"Gullerød","nutrition":{"measureBy":"g","calories":39,"fat":0.4,"carbs":6.3,"protein":1}},{"name":"Squash","id":"12","danish":"Squash","nutrition":{"measureBy":"g","calories":19,"fat":0.2,"carbs":2.4,"protein":1.4}},{"name":"Onion","id":"13","danish":"Løg","nutrition":{"measureBy":"g","calories":43,"fat":0.1,"carbs":8.4,"protein":1.2}},{"name":"Garlic","id":"14","danish":"Hvidløg","nutrition":{"measureBy":"g","calories":153,"fat":0.5,"carbs":30.9,"protein":6.4}},{"name":"Avocado","id":"15","danish":"Avocado","nutrition":{"measureBy":"g","calories":172,"fat":13.1,"carbs":9,"protein":1.9}}]},{"name":"Fruit","id":"2","category":"Fruit","items":[{"name":"Apple","id":"21","danish":"Æble","nutrition":{"measureBy":"g","calories":55,"fat":0.2,"carbs":12.1,"protein":0.3}},{"name":"Grapes","id":"22","danish":"Vindruer","nutrition":{"measureBy":"g","calories":67,"fat":0,"carbs":15.7,"protein":0.6}}]},{"name":"Meat","id":"3","category":"Meat","items":[{"name":"Beef, Minced, 4-7%","id":"31","danish":"Oksekød 4-7%","nutrition":{"measureBy":"g","calories":137,"fat":5.5,"carbs":0,"protein":22}},{"name":"Pork tenderloin","id":"32","danish":"Svinemørbrad","nutrition":{"measureBy":"g","calories":130,"fat":4.9,"carbs":0.5,"protein":21}},{"name":"Bacon (turkey)","id":"33","danish":"Kalkunbacon","nutrition":{"measureBy":"g","calories":117,"fat":4.5,"carbs":1.1,"protein":18}}]},{"name":"Dairy","id":"4","category":"Dairy","items":[{"name":"Egg","id":"41","danish":"Æg","nutrition":{"measureBy":"g","calories":138,"fat":9.3,"carbs":1.3,"protein":12}},{"name":"Gouda Cheese (Rema)","id":"42","danish":"Gouda Ost (Rema)","nutrition":{"measureBy":"g","calories":352,"fat":18,"carbs":0.5,"protein":24}},{"name":"Milk 0.4%","id":"43","danish":"Mælk 0,4%","nutrition":{"measureBy":"g","calories":36,"fat":0.4,"carbs":4.7,"protein":3.5}},{"name":"Milk 0.1%","id":"44","danish":"Mælk 0,1%","nutrition":{"measureBy":"g","calories":34,"fat":0.1,"carbs":4.7,"protein":3.5}},{"name":"Yoghurt (Cheesy 0.1%)","id":"45","danish":"Yoghurt (Cheesy 0.1%)","nutrition":{"measureBy":"g","calories":40,"fat":0.1,"carbs":4.8,"protein":4.2}},{"name":"Cream Freiche 9%","id":"46","danish":"Cream Freiche 9%","nutrition":{"measureBy":"g","calories":447,"fat":9,"carbs":3.5,"protein":3.2}},{"name":"Cottage cheese (Cheasy 1.5%)","id":"47","danish":"Hytteost (Cheasy 1.5%)","nutrition":{"measureBy":"g","calories":79,"fat":1.5,"carbs":3.1,"protein":13}},{"name":"Grated cheese (Cheesy 13%)","id":"48","danish":"Revet ost (Cheasy 13%)","nutrition":{"measureBy":"g","calories":284,"fat":13,"carbs":2.9,"protein":13}},{"name":"Protein Drink - Chocolate (Arla)","id":"49","danish":"Proteindrik - Chokolade (Arla)","nutrition":{"measureBy":"g","calories":51,"fat":0.9,"carbs":4.9,"protein":5.7}}]},{"name":"Grain Products","id":"5","category":"Grain Products","items":[{"name":"Rice (Brown)","id":"51","danish":"Ris - Brun","nutrition":{"measureBy":"g","calories":350,"fat":0.6,"carbs":73,"protein":6.2}},{"name":"Rice (Basmati)","id":"52","danish":"Ris - Basmati","nutrition":{"measureBy":"g","calories":350,"fat":1,"carbs":77,"protein":9}},{"name":"Flour (Whole Wheat)","id":"53","danish":"Fuldkornshvedemel","nutrition":{"measureBy":"g","calories":330,"fat":2.5,"carbs":59,"protein":11}},{"name":"Flour","id":"54","danish":"Hvedemel","nutrition":{"measureBy":"g","calories":352,"fat":1.6,"carbs":72,"protein":10.5}}]},{"name":"Bread","id":"6","category":"Bread","items":[{"name":"Bun (Sunflower)","id":"61","danish":"Solsikkeboller","nutrition":{"measureBy":"g","calories":294,"fat":8.5,"carbs":43,"protein":9.7}},{"name":"Crispbread","id":"62","danish":"Knækbrød","nutrition":{"measureBy":"g","calories":356,"fat":6,"carbs":56,"protein":11}}]},{"name":"Canned Food","id":"7","category":"Canned Food","items":[{"name":"Tomato - Chopped (Mutti)","id":"71","danish":"Tomater - Hakkede Dåse (Mutti)","nutrition":{"measureBy":"g","calories":26,"fat":0.2,"carbs":3.9,"protein":1.2}},{"name":"Corn","id":"72","danish":"Mejs","nutrition":{"measureBy":"g","calories":80,"fat":1.9,"carbs":10.8,"protein":2.9}}]},{"name":"Premade Ingredients","id":"8","category":"Premade Ingredients","items":[{"name":"Sauce - Sweet/sour (Coop)","id":"81","danish":"Sauce - Sweet/sour (Coop)","nutrition":{"measureBy":"g","calories":78,"fat":0,"carbs":19,"protein":0}},{"name":"Vegetables - Frozen (Coop)","id":"82","danish":"Frosne Grøntsager (coop)","nutrition":{"measureBy":"g","calories":67,"fat":0.2,"carbs":15.7,"protein":0.6}},{"name":"Powder (EatSmart365)","id":"83","danish":"Smoothie Pulver (EatSmart365)","nutrition":{"measureBy":"g","calories":402,"fat":16.3,"carbs":33.4,"protein":20.7}}]},{"name":"Drinks - Alc","id":"9","category":"Drinks - Alc","items":[{"name":"Beer - Jacobsen Juicy IPA","id":"91","danish":"Øl - Jacobsen Juicy IPA","nutrition":{"measureBy":"g","calories":39,"fat":0,"carbs":2.9,"protein":0.5}},{"name":"Beer - Tuborg Classic (Can)","id":"92","danish":"Øl - Tuborg Classic (dåse)","nutrition":{"measureBy":"g","calories":39,"fat":0.2,"carbs":3.9,"protein":0}}]}]}');
 
 /***/ })
 
