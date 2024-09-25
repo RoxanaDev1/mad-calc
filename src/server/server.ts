@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import { getAllFood } from "./services/foodService";
 
 const BUILD_DIR = path.join(__dirname, "../../build");
 const INDEX_DIR = path.join(BUILD_DIR, "index.html");
@@ -18,6 +19,10 @@ app.use(express.static(BUILD_DIR));
  */
 app.get("/", (req: express.Request, res: express.Response) => {
   res.sendFile(INDEX_DIR);
+});
+
+app.get("/food", (req: express.Request, res: express.Response) => {
+  res.status(200).send(getAllFood());
 });
 
 /**
