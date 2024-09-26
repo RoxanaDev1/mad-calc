@@ -22,11 +22,26 @@ export class App extends Component<{}, AppState> {
     super({});
     this.state = { food: food, selectedFood: [] };
     this.onAddFoodItem = this.onAddFoodItem.bind(this);
+    this.onDeleteFoodItem = this.onDeleteFoodItem.bind(this);
   }
 
   onAddFoodItem(foodItem: CalculatedFoodItemNutrition): void {
     let foodArr = this.state.selectedFood;
     foodArr.push(foodItem);
+    this.setState({
+      selectedFood: foodArr,
+    });
+  }
+
+  onDeleteFoodItem(foodItem: CalculatedFoodItemNutrition): void {
+    let foodArr = this.state.selectedFood;
+
+    const itemIndex = foodArr.findIndex(
+      (currentItem: CalculatedFoodItemNutrition) =>
+        currentItem.foodItem.id === foodItem.foodItem.id
+    );
+    foodArr.splice(itemIndex, 1);
+
     this.setState({
       selectedFood: foodArr,
     });
@@ -41,7 +56,10 @@ export class App extends Component<{}, AppState> {
             categories={this.state.food.categories}
             onAddFoodItem={this.onAddFoodItem}
           />
-          <FoodItemList selectedFoodItems={this.state.selectedFood} />
+          <FoodItemList
+            selectedFoodItems={this.state.selectedFood}
+            onDeleteFoodItem={this.onDeleteFoodItem}
+          />
           <FoodListSummary selectedFoodItems={this.state.selectedFood} />
         </ContentContainer>
       </AppContainer>
