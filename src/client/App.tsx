@@ -1,33 +1,47 @@
 import React from "react";
 import { Component } from "react";
-import { Food, FoodItem } from "../common/types/food";
+import {
+  Food,
+  FoodItem,
+  CalculatedFoodItemNutrition,
+} from "../common/types/food";
 import styled from "styled-components";
-import { FoodRow } from "./components/FoodRow";
+import { FoodSelection } from "./components/FoodSelection";
 import food from "../common/data/food-list.json";
+import { Header } from "./components/Header";
+import { FoodItemList } from "./components/FoodItemList";
 
 interface AppState {
-  food?: Food;
-  selectedFood: Array<FoodItem>;
+  food: Food;
+  selectedFood: Array<CalculatedFoodItemNutrition>;
 }
 
 export class App extends Component<{}, AppState> {
   constructor() {
     super({});
     this.state = { food: food, selectedFood: [] };
+    this.onAddFoodItem = this.onAddFoodItem.bind(this);
   }
 
-  renderFoodRowList() {
-    if (!this.state.food) {
-      return;
-    }
-    return <FoodRow categories={this.state.food.categories} />;
+  onAddFoodItem(foodItem: CalculatedFoodItemNutrition): void {
+    let foodArr = this.state.selectedFood;
+    foodArr.push(foodItem);
+    this.setState({
+      selectedFood: foodArr,
+    });
   }
 
   render() {
     return (
       <AppContainer>
-        <h1>Hello!</h1>
-        <ContentContainer>{this.renderFoodRowList()}</ContentContainer>
+        <Header />
+        <ContentContainer>
+          <FoodSelection
+            categories={this.state.food.categories}
+            onAddFoodItem={this.onAddFoodItem}
+          />
+          <FoodItemList selectedFoodItems={this.state.selectedFood} />
+        </ContentContainer>
       </AppContainer>
     );
   }
@@ -44,4 +58,16 @@ const ContentContainer = styled.div`
   display: flex;
   height: inherit;
   max-width: 100%;
+  background: #5d6d7e;
+  font-family: cursive;
+  flex-direction: column;
+`;
+
+const FoodRowsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  place-content: center;
+  font-family: cursive;
+  flex-direction: column;
 `;
