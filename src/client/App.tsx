@@ -10,6 +10,7 @@ import { FoodSelection } from "./components/FoodSelection";
 import food from "../common/data/food-list.json";
 import { Header } from "./components/Header";
 import { FoodItemList } from "./components/FoodItemList";
+import { FoodListSummary } from "./components/FoodSummary";
 
 interface AppState {
   food: Food;
@@ -41,6 +42,7 @@ export class App extends Component<{}, AppState> {
             onAddFoodItem={this.onAddFoodItem}
           />
           <FoodItemList selectedFoodItems={this.state.selectedFood} />
+          <FoodListSummary selectedFoodItems={this.state.selectedFood} />
         </ContentContainer>
       </AppContainer>
     );
@@ -61,13 +63,5 @@ const ContentContainer = styled.div`
   background: #5d6d7e;
   font-family: cursive;
   flex-direction: column;
-`;
-
-const FoodRowsContainer = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  place-content: center;
-  font-family: cursive;
-  flex-direction: column;
+  justify-content: space-between;
 `;

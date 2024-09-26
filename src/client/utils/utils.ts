@@ -98,3 +98,22 @@ export function generateEmptyCalcFoodItem(
   }
   return item;
 }
+
+export function generateNutritionSummary(
+  items: Array<CalculatedFoodItemNutrition>
+): FoodNutrition {
+  let summaryNutrition: FoodNutrition = {
+    measureBy: "g",
+    calories: 0,
+    fat: 0,
+    carbs: 0,
+    protein: 0,
+  };
+  items.forEach((item: CalculatedFoodItemNutrition) => {
+    summaryNutrition.calories = item.calculatedNutrition.calories;
+    summaryNutrition.carbs = item.calculatedNutrition.carbs;
+    summaryNutrition.fat = item.calculatedNutrition.fat;
+    summaryNutrition.protein = item.calculatedNutrition.protein;
+  });
+  return summaryNutrition;
+}
