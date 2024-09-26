@@ -6,6 +6,7 @@ import {
 import styled from "styled-components";
 import React from "react";
 import { generateNutritionSummary } from "../utils/utils";
+import { NutritionSummary } from "./common/NutritionSummary";
 
 interface FoodListSummaryProps {
   selectedFoodItems: Array<CalculatedFoodItemNutrition>;
@@ -22,12 +23,7 @@ export class FoodListSummary extends Component<FoodListSummaryProps, {}> {
     );
     return (
       <NutritionListContainer>
-        <NutritionValue>
-          {`Calories: ${summaryNutrition.calories}`}
-        </NutritionValue>
-        <NutritionValue>{`Carbs: ${summaryNutrition.carbs}`}</NutritionValue>
-        <NutritionValue>{`Fat: ${summaryNutrition.fat}`}</NutritionValue>
-        <NutritionValue>{`Protein: ${summaryNutrition.protein}`}</NutritionValue>
+        <NutritionSummary nutrition={summaryNutrition} />
       </NutritionListContainer>
     );
   }
@@ -54,9 +50,4 @@ const NutritionListContainer = styled.div`
   align-items: center;
   place-content: center;
   flex-direction: row;
-`;
-
-const NutritionValue = styled.div`
-  display: flex;
-  padding: 10px;
 `;

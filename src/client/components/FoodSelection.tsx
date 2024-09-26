@@ -5,13 +5,15 @@ import {
   FoodCategory,
   FoodItem,
   CalculatedFoodItemNutrition,
+  FoodUnit,
 } from "../../common/types/food";
 import {
   generateEmptyCalcFoodItem,
   getCalculatedFoodItem,
   getNutrition,
 } from "../utils/utils";
-import { ItemSelect } from "./ItemSelect";
+import { ItemSelect } from "./common/ItemSelect";
+import { NutritionSummary } from "./common/NutritionSummary";
 
 interface FoodSelectionProps {
   categories: Array<FoodCategory>;
@@ -37,6 +39,7 @@ export class FoodSelection extends Component<
     };
     this.onSelectCategory = this.onSelectCategory.bind(this);
     this.onSelectFoodItem = this.onSelectFoodItem.bind(this);
+    this.onSelectFoodUnit = this.onSelectFoodUnit.bind(this);
     this.onChangeGramInput = this.onChangeGramInput.bind(this);
     this.onAddFoodItem = this.onAddFoodItem.bind(this);
     this.setCurrentCalcFoodItem = this.setCurrentCalcFoodItem.bind(this);
@@ -57,7 +60,14 @@ export class FoodSelection extends Component<
   onSelectCategory(selectedCategory: FoodCategory) {
     let currentItem: CalculatedFoodItemNutrition = this.state.currentFoodItem;
 
+    //Set default food item
     currentItem.foodItem = selectedCategory.items[0];
+
+    //Set default food unit
+    if (currentItem.foodItem.foodUnit) {
+      currentItem.selectedFoodUnit = currentItem.foodItem.foodUnit[0];
+      currentItem.amount = currentItem.foodItem.foodUnit[0].amount;
+    }
 
     this.setState({
       currentCategory: selectedCategory,
@@ -71,6 +81,21 @@ export class FoodSelection extends Component<
 
     currentItem.foodItem = selectedFoodItem;
 
+    //Set default food unit
+    if (currentItem.foodItem.foodUnit) {
+      currentItem.selectedFoodUnit = currentItem.foodItem.foodUnit[0];
+      currentItem.amount = currentItem.foodItem.foodUnit[0].amount;
+    }
+
+    this.setCurrentCalcFoodItem(currentItem);
+  }
+
+  onSelectFoodUnit(selectedFoodUnit: FoodUnit) {
+    let currentItem: CalculatedFoodItemNutrition = this.state.currentFoodItem;
+
+    currentItem.amount = selectedFoodUnit.amount;
+    currentItem.selectedFoodUnit = selectedFoodUnit;
+
     this.setCurrentCalcFoodItem(currentItem);
   }
 
@@ -78,22 +103,11 @@ export class FoodSelection extends Component<
     let currentItem: CalculatedFoodItemNutrition = this.state.currentFoodItem;
     currentItem.amount = Number(event.target.value);
 
-    // console.log("amount:", currentItem.amount);
-    // const nutritionPerSelection = getNutrition(
-    //   currentItem.foodItem,
-    //   currentItem.amount
-    // );
-
-    // console.log("nutritionPerSelection:", nutritionPerSelection);
-
-    // currentItem.calculatedNutrition = nutritionPerSelection;
-
     this.setCurrentCalcFoodItem(currentItem);
   }
 
   onAddFoodItem(event: any) {
     if (!this.state.currentFoodItem.amount) {
-      console.log("Cannot calculate the item");
       return;
     }
 
@@ -101,6 +115,7 @@ export class FoodSelection extends Component<
       this.state.currentFoodItem?.foodItem,
       Number(this.state.currentFoodItem?.amount)
     );
+
     this.props.onAddFoodItem(calcItem);
   }
 
@@ -111,14 +126,9 @@ export class FoodSelection extends Component<
 
     return (
       <NutritionContainer>
-        <NutritionValue>
-          {`Calories: ${this.state.currentFoodItem.calculatedNutrition.calories}`}
-        </NutritionValue>
-        <NutritionValue>{`Carbs: ${this.state.currentFoodItem.calculatedNutrition.carbs}`}</NutritionValue>
-        <NutritionValue>{`Fat: ${this.state.currentFoodItem.calculatedNutrition.fat}`}</NutritionValue>
-        <NutritionValue>
-          {`Protein: ${this.state.currentFoodItem.calculatedNutrition.protein}`}
-        </NutritionValue>
+        <NutritionSummary
+          nutrition={this.state.currentFoodItem.calculatedNutrition}
+        />
       </NutritionContainer>
     );
   }
@@ -143,6 +153,19 @@ export class FoodSelection extends Component<
     );
   }
 
+  renderUnitSelection() {
+    if (!this.state.currentFoodItem.foodItem.foodUnit) {
+      return;
+    }
+    return (
+      <ItemSelect
+        data={this.state.currentFoodItem.foodItem.foodUnit}
+        onSelect={this.onSelectFoodUnit}
+        currentValue={this.state.currentFoodItem.selectedFoodUnit}
+      />
+    );
+  }
+
   renderAmountInputField() {
     return (
       <InputGramQuantityContainer>
@@ -161,6 +184,7 @@ export class FoodSelection extends Component<
       <FoodSelectionContainer>
         {this.renderCategorySelection()}
         {this.renderFoodItemSelection()}
+        {this.renderUnitSelection()}
         {this.renderAmountInputField()}
         {this.renderNutrition()}
         <AddFoodItemButtonContainer>

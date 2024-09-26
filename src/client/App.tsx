@@ -50,7 +50,6 @@ export class App extends Component<{}, AppState> {
 }
 
 const AppContainer = styled.div`
-  width: 100vh;
   height: 100vh;
   min-width: 100%;
   min-height: 100%;

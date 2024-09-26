@@ -14,6 +14,7 @@ export type FoodItem = {
   id: string;
   danish: string;
   nutrition: FoodNutrition;
+  foodUnit?: Array<FoodUnit>;
 };
 
 export type FoodNutrition = {
@@ -28,4 +29,11 @@ export type CalculatedFoodItemNutrition = {
   foodItem: FoodItem;
   amount: number;
   calculatedNutrition: FoodNutrition;
+  selectedFoodUnit?: FoodUnit;
+};
+
+export type FoodUnit = {
+  name: string;
+  id: string;
+  amount: number;
 };

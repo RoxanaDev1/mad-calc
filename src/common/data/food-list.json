@@ -137,7 +137,14 @@
             "fat": 4.5,
             "carbs": 1.1,
             "protein": 18
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Slice",
+              "id": "331",
+              "amount": 16.6
+            }
+          ]
         }
       ]
     },
@@ -156,7 +163,14 @@
             "fat": 9.3,
             "carbs": 1.3,
             "protein": 12
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "1 Medium",
+              "id": "411",
+              "amount": 61
+            }
+          ]
         },
         {
           "name": "Gouda Cheese (Rema)",
@@ -168,7 +182,14 @@
             "fat": 18,
             "carbs": 0.5,
             "protein": 24
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Slice",
+              "id": "421",
+              "amount": 25
+            }
+          ]
         },
         {
           "name": "Milk 0.4%",
@@ -252,7 +273,14 @@
             "fat": 0.9,
             "carbs": 4.9,
             "protein": 5.7
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Bottle",
+              "id": "491",
+              "amount": 482
+            }
+          ]
         }
       ]
     },
@@ -326,7 +354,14 @@
             "fat": 8.5,
             "carbs": 43,
             "protein": 9.7
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Bun",
+              "id": "611",
+              "amount": 66
+            }
+          ]
         },
         {
           "name": "Crispbread",
@@ -338,7 +373,14 @@
             "fat": 6,
             "carbs": 56,
             "protein": 11
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Slice",
+              "id": "621",
+              "amount": 9.3
+            }
+          ]
         }
       ]
     },
@@ -357,7 +399,14 @@
             "fat": 0.2,
             "carbs": 3.9,
             "protein": 1.2
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Can",
+              "id": "711",
+              "amount": 400
+            }
+          ]
         },
         {
           "name": "Corn",
@@ -369,7 +418,14 @@
             "fat": 1.9,
             "carbs": 10.8,
             "protein": 2.9
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Can",
+              "id": "721",
+              "amount": 150
+            }
+          ]
         }
       ]
     },
@@ -388,7 +444,14 @@
             "fat": 0,
             "carbs": 19,
             "protein": 0
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Bottle",
+              "id": "811",
+              "amount": 435
+            }
+          ]
         },
         {
           "name": "Vegetables - Frozen (Coop)",
@@ -412,7 +475,14 @@
             "fat": 16.3,
             "carbs": 33.4,
             "protein": 20.7
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Scoop",
+              "id": "831",
+              "amount": 25
+            }
+          ]
         }
       ]
     },
@@ -431,7 +501,14 @@
             "fat": 0,
             "carbs": 2.9,
             "protein": 0.5
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Bottle",
+              "id": "911",
+              "amount": 750
+            }
+          ]
         },
         {
           "name": "Beer - Tuborg Classic (Can)",
@@ -443,7 +520,14 @@
             "fat": 0.2,
             "carbs": 3.9,
             "protein": 0
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Can",
+              "id": "921",
+              "amount": 330
+            }
+          ]
         }
       ]
     }

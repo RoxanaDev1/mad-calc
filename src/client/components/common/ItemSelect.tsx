@@ -1,17 +1,17 @@
 import React from "react";
 import { Component } from "react";
 import styled from "styled-components";
-import { FoodCategory, FoodItem } from "../../common/types/food";
-import { geItemByName } from "../utils/utils";
+import { FoodCategory, FoodItem, FoodUnit } from "../../../common/types/food";
+import { geItemByName } from "../../utils/utils";
 
 interface ItemSelectProps {
-  data: Array<FoodCategory | FoodItem>;
-  currentValue: FoodCategory | FoodItem;
+  data: Array<FoodCategory | FoodItem | FoodUnit>;
+  currentValue?: FoodCategory | FoodItem | FoodUnit;
   onSelect: (option: any) => void;
 }
 
 interface ItemSelectState {
-  selectedValue: FoodCategory | FoodItem;
+  selectedValue?: FoodCategory | FoodItem | FoodUnit;
 }
 
 export class ItemSelect extends Component<ItemSelectProps, ItemSelectState> {
@@ -24,10 +24,8 @@ export class ItemSelect extends Component<ItemSelectProps, ItemSelectState> {
   }
 
   onOptionChanged(event: any) {
-    const currentSelection: FoodCategory | FoodItem | undefined = geItemByName(
-      this.props.data,
-      event.target.value
-    );
+    const currentSelection: FoodCategory | FoodItem | FoodUnit | undefined =
+      geItemByName(this.props.data, event.target.value);
 
     if (!currentSelection) {
       return;
@@ -41,7 +39,7 @@ export class ItemSelect extends Component<ItemSelectProps, ItemSelectState> {
   }
 
   renderItemSelectItems() {
-    return this.props.data.map((option: FoodCategory | FoodItem) => {
+    return this.props.data.map((option: FoodCategory | FoodItem | FoodUnit) => {
       return (
         <ItemSelectOption key={option.id} value={option.name}>
           {option.name}
@@ -55,7 +53,7 @@ export class ItemSelect extends Component<ItemSelectProps, ItemSelectState> {
       <ItemSelectContainer>
         <ItemSelectBox
           onChange={this.onOptionChanged}
-          defaultValue={this.state.selectedValue.id}
+          value={this.props.currentValue?.name}
         >
           {this.renderItemSelectItems()}
         </ItemSelectBox>

@@ -3,6 +3,7 @@ import {
   FoodCategory,
   FoodItem,
   FoodNutrition,
+  FoodUnit,
 } from "../../common/types/food";
 
 export function geItemById(
@@ -15,10 +16,10 @@ export function geItemById(
 }
 
 export function geItemByName(
-  data: Array<FoodCategory | FoodItem>,
+  data: Array<FoodCategory | FoodItem | FoodUnit>,
   itemName: string
-): FoodCategory | FoodItem | undefined {
-  return data.find((currentItem: FoodCategory | FoodItem) => {
+): FoodCategory | FoodItem | FoodUnit | undefined {
+  return data.find((currentItem: FoodCategory | FoodItem | FoodUnit) => {
     return currentItem.name === itemName;
   });
 }
@@ -43,16 +44,13 @@ export function getFoodItemById(
 
 export function getNutrition(foodItem: FoodItem, grams: number): FoodNutrition {
   const calcPer: number = grams / 100;
-  console.log("calcper:", calcPer);
-  console.log("item:", foodItem);
   const calculatedNutrition: FoodNutrition = {
     measureBy: "g",
-    calories: Number((calcPer * foodItem.nutrition.calories).toFixed(2)),
-    fat: Number((calcPer * foodItem.nutrition.fat).toFixed(2)),
-    carbs: Number((calcPer * foodItem.nutrition.carbs).toFixed(2)),
-    protein: Number((calcPer * foodItem.nutrition.protein).toFixed(2)),
+    calories: Number(calcPer * foodItem.nutrition.calories),
+    fat: Number(calcPer * foodItem.nutrition.fat),
+    carbs: Number(calcPer * foodItem.nutrition.carbs),
+    protein: Number(calcPer * foodItem.nutrition.protein),
   };
-  console.log("calculation:", calculatedNutrition);
   return calculatedNutrition;
 }
 
@@ -110,10 +108,10 @@ export function generateNutritionSummary(
     protein: 0,
   };
   items.forEach((item: CalculatedFoodItemNutrition) => {
-    summaryNutrition.calories = item.calculatedNutrition.calories;
-    summaryNutrition.carbs = item.calculatedNutrition.carbs;
-    summaryNutrition.fat = item.calculatedNutrition.fat;
-    summaryNutrition.protein = item.calculatedNutrition.protein;
+    summaryNutrition.calories += item.calculatedNutrition.calories;
+    summaryNutrition.carbs += item.calculatedNutrition.carbs;
+    summaryNutrition.fat += item.calculatedNutrition.fat;
+    summaryNutrition.protein += item.calculatedNutrition.protein;
   });
   return summaryNutrition;
 }
