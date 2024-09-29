@@ -43,6 +43,11 @@ const FoodItemListContainer = styled.div`
   place-content: center;
   flex-direction: column;
   background-color: lightsteelblue;
+  flex-wrap: wrap;
+  @media (max-width: 963px) {
+    font-size: 25px;
+    background-color: pink;
+  }
 `;
 
 const NutritionListContainer = styled.div`

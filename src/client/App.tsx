@@ -1,10 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import {
-  Food,
-  FoodItem,
-  CalculatedFoodItemNutrition,
-} from "../common/types/food";
+import { Food, CalculatedFoodItemNutrition } from "../common/types/food";
 import styled from "styled-components";
 import { FoodSelection } from "./components/FoodSelection";
 import food from "../common/data/food-list.json";
@@ -81,4 +77,5 @@ const ContentContainer = styled.div`
   font-family: cursive;
   flex-direction: column;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
