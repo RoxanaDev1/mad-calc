@@ -121,8 +121,8 @@
           "danish": "Svinemørbrad",
           "nutrition": {
             "measureBy": "g",
-            "calories": 130,
-            "fat": 4.9,
+            "calories": 103,
+            "fat": 1.7,
             "carbs": 0.5,
             "protein": 21
           }
@@ -279,6 +279,37 @@
               "name": "Bottle",
               "id": "491",
               "amount": 482
+            }
+          ]
+        },
+        {
+          "name": "Slice cheese (Cheesy 13%)",
+          "id": "4100",
+          "danish": "Mellemlager (Cheasy 13%)",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 231,
+            "fat": 13,
+            "carbs": 0.5,
+            "protein": 28
+          }
+        },
+        {
+          "name": "CitronFromage (DrOetker)",
+          "id": "4200",
+          "danish": "CitronFromage (DrOetker)",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 155,
+            "fat": 7.1,
+            "carbs": 20,
+            "protein": 2.2
+          },
+          "foodUnit": [
+            {
+              "name": "Cup",
+              "id": "4201",
+              "amount": 100
             }
           ]
         }
