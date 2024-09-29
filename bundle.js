@@ -11,11 +11,16 @@
   font-family: cursive;
   flex-direction: column;
   justify-content: space-between;
+  flex-wrap: wrap;
 `},708:function(e,t,n){"use strict";var r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0}),t.FoodItemList=void 0;const a=n(810),l=r(n(420)),o=r(n(810)),i=n(261),u=n(567);class s extends a.Component{constructor(e){super(e),this.onDeleteFoodItem=this.onDeleteFoodItem.bind(this)}onDeleteFoodItem(e){const t=this.props.selectedFoodItems[e.target.id];this.props.onDeleteFoodItem(t)}renderNutrition(){let e=[];return this.props.selectedFoodItems.forEach(((t,n)=>{e.push(o.default.createElement(f,{key:n},o.default.createElement(i.InformationField,{text:"Name",value:t.foodItem.name}),o.default.createElement(i.InformationField,{text:"Amount",value:t.amount}),o.default.createElement(u.NutritionSummary,{nutrition:t.calculatedNutrition}),o.default.createElement(d,{id:`${n}`,onClick:this.onDeleteFoodItem},"DELETE")))})),e}render(){return o.default.createElement(c,null,this.renderNutrition())}}t.FoodItemList=s;const c=l.default.div`
   display: flex;
   align-items: center;
   place-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  @media (max-width: 384px) {
+    flex-direction: column;
+  }
 `,f=l.default.div`
   display: flex;
   align-items: center;
@@ -26,6 +31,10 @@
   align-items: center;
   place-content: center;
   padding: 50px;
+  flex-wrap: wrap;
+  @media (max-width: 412px) {
+    flex-direction: column;
+  }
 `,d=o.default.div`
   padding: 10px;
 `,p=o.default.input``,m=o.default.div`
@@ -46,6 +55,11 @@
   place-content: center;
   flex-direction: column;
   background-color: lightsteelblue;
+  flex-wrap: wrap;
+  @media (max-width: 412px) {
+    flex-direction: column;
+    background-color: pink;
+  }
 `,f=l.default.div`
   display: flex;
   align-items: center;
@@ -72,7 +86,11 @@
   padding: 10px;
 `},134:function(e,t,n){"use strict";var r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0}),t.ItemSelect=void 0;const a=r(n(810)),l=n(810),o=r(n(420)),i=n(477);class u extends l.Component{constructor(e){super(e),this.state={selectedValue:this.props.currentValue},this.onOptionChanged=this.onOptionChanged.bind(this)}onOptionChanged(e){const t=(0,i.geItemByName)(this.props.data,e.target.value);t&&(this.setState({selectedValue:t}),this.props.onSelect(t))}renderItemSelectItems(){return this.props.data.map((e=>a.default.createElement(f,{key:e.id,value:e.name},e.name)))}render(){var e;return a.default.createElement(s,null,a.default.createElement(c,{onChange:this.onOptionChanged,value:null===(e=this.props.currentValue)||void 0===e?void 0:e.name},this.renderItemSelectItems()))}}t.ItemSelect=u;const s=o.default.div`
   padding: 10px;
-`,c=o.default.select``,f=o.default.option``},567:function(e,t,n){"use strict";var r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0}),t.NutritionSummary=void 0;const a=n(810),l=r(n(810)),o=n(261),i=r(n(420));class u extends a.Component{constructor(e){super(e)}render(){return l.default.createElement(s,null,l.default.createElement(o.InformationField,{text:"Calories",value:this.props.nutrition.calories}),l.default.createElement(o.InformationField,{text:"Carbs",value:this.props.nutrition.carbs}),l.default.createElement(o.InformationField,{text:"Fat",value:this.props.nutrition.fat}),l.default.createElement(o.InformationField,{text:"Protein",value:this.props.nutrition.protein}))}}t.NutritionSummary=u;const s=i.default.div`
+`,c=o.default.select`
+  @media (max-width: 412px) {
+    font-size: 25px;
+  }
+`,f=o.default.option``},567:function(e,t,n){"use strict";var r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(t,"__esModule",{value:!0}),t.NutritionSummary=void 0;const a=n(810),l=r(n(810)),o=n(261),i=r(n(420));class u extends a.Component{constructor(e){super(e)}render(){return l.default.createElement(s,null,l.default.createElement(o.InformationField,{text:"Calories",value:this.props.nutrition.calories}),l.default.createElement(o.InformationField,{text:"Carbs",value:this.props.nutrition.carbs}),l.default.createElement(o.InformationField,{text:"Fat",value:this.props.nutrition.fat}),l.default.createElement(o.InformationField,{text:"Protein",value:this.props.nutrition.protein}))}}t.NutritionSummary=u;const s=i.default.div`
   display: flex;
   align-items: center;
   place-content: center;
