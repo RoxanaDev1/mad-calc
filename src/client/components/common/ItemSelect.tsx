@@ -68,7 +68,7 @@ const ItemSelectContainer = styled.div`
 
 const ItemSelectBox = styled.select`
   @media (max-width: 963px) {
-    font-size: 25px;
+    font-size: 15px;
   }
 `;
 

@@ -82,7 +82,14 @@
             "fat": 0.2,
             "carbs": 12.1,
             "protein": 0.3
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Big",
+              "id": "211",
+              "amount": 110
+            }
+          ]
         },
         {
           "name": "Grapes",
@@ -95,6 +102,25 @@
             "carbs": 15.7,
             "protein": 0.6
           }
+        },
+        {
+          "name": "Banana",
+          "id": "23",
+          "danish": "Banan",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 93,
+            "fat": 0.2,
+            "carbs": 21,
+            "protein": 1.1
+          },
+          "foodUnit": [
+            {
+              "name": "Big",
+              "id": "231",
+              "amount": 120
+            }
+          ]
         }
       ]
     },
@@ -143,6 +169,44 @@
               "name": "Slice",
               "id": "331",
               "amount": 16.6
+            }
+          ]
+        },
+        {
+          "name": "Salami Kartoffel Mild (Coop)",
+          "id": "34",
+          "danish": "Kartoffel Spegepølse Mild (Coop)",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 208,
+            "fat": 13,
+            "carbs": 1.8,
+            "protein": 21
+          },
+          "foodUnit": [
+            {
+              "name": "Slice",
+              "id": "341",
+              "amount": 5.3
+            }
+          ]
+        },
+        {
+          "name": "Chicken Breast Slices (Coop)",
+          "id": "35",
+          "danish": "Kyllinge Bryst Skiver (Coop)",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 106,
+            "fat": 2.7,
+            "carbs": 1.5,
+            "protein": 2191
+          },
+          "foodUnit": [
+            {
+              "name": "Slice",
+              "id": "351",
+              "amount": 10
             }
           ]
         }
@@ -292,7 +356,14 @@
             "fat": 13,
             "carbs": 0.5,
             "protein": 28
-          }
+          },
+          "foodUnit": [
+            {
+              "name": "Slice",
+              "id": "4101",
+              "amount": 20
+            }
+          ]
         },
         {
           "name": "CitronFromage (DrOetker)",
@@ -310,6 +381,37 @@
               "name": "Cup",
               "id": "4201",
               "amount": 100
+            }
+          ]
+        },
+        {
+          "name": "Butter",
+          "id": "4300",
+          "danish": "Smør",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 739,
+            "fat": 82,
+            "carbs": 0.7,
+            "protein": 0.6
+          }
+        },
+        {
+          "name": "Butter - Spreadable",
+          "id": "4400",
+          "danish": "Smørbar",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 707,
+            "fat": 78,
+            "carbs": 0.7,
+            "protein": 0.6
+          },
+          "foodUnit": [
+            {
+              "name": "Spread",
+              "id": "4401",
+              "amount": 5
             }
           ]
         }
@@ -412,6 +514,25 @@
               "amount": 9.3
             }
           ]
+        },
+        {
+          "name": "Crispbread - Surdeg",
+          "id": "63",
+          "danish": "Knækbrød - Suredeg",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 339,
+            "fat": 2.5,
+            "carbs": 58.5,
+            "protein": 11
+          },
+          "foodUnit": [
+            {
+              "name": "Slice",
+              "id": "631",
+              "amount": 14
+            }
+          ]
         }
       ]
     },
@@ -511,7 +632,7 @@
             {
               "name": "Scoop",
               "id": "831",
-              "amount": 25
+              "amount": 34
             }
           ]
         }

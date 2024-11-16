@@ -33,6 +33,6 @@ const InformationFieldContainer = styled.div`
   display: flex;
   padding: 10px;
   @media (max-width: 963px) {
-    font-size: 25px;
+    font-size: 15px;
   }
 `;

@@ -44,8 +44,9 @@ const FoodItemListContainer = styled.div`
   flex-direction: column;
   background-color: lightsteelblue;
   flex-wrap: wrap;
+  width: fit-content;
   @media (max-width: 963px) {
-    font-size: 25px;
+    font-size: 15px;
     background-color: pink;
   }
 `;

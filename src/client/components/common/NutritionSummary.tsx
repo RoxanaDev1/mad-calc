@@ -37,6 +37,8 @@ const NutritionSummaryContainer = styled.div`
   place-content: center;
   flex-direction: row;
   @media (max-width: 963px) {
-    font-size: 25px;
+    font-size: 15px;
+    place-content: flex-start;
   }
+  flex-flow: wrap;
 `;

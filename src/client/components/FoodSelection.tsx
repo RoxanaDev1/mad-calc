@@ -208,12 +208,14 @@ export class FoodSelection extends Component<
 
 const FoodSelectionContainer = styled.div`
   display: flex;
-  align-items: center;
   place-content: center;
   padding: 50px;
   flex-wrap: wrap;
+  width: fit-content;
   @media (max-width: 963px) {
     flex-direction: column;
+    padding-top: 15px;
+    place-content: flex-start;
   }
 `;
 
@@ -223,7 +225,8 @@ const InputGramQuantityContainer = styled.div`
 
 const InputGramQuantity = styled.input`
   @media (max-width: 963px) {
-    font-size: 25px;
+    font-size: 15px;
+    width: 230px;
   }
 `;
 
@@ -247,7 +250,7 @@ const AddFoodItemButtonContainer = styled.div`
 
 const AddFoodItemButton = styled.button`
   color: #fff;
-  padding: 15px 25px;
+  padding: 5px 15px;
   border-radius: 100px;
   background-color: rgb(67, 166, 205);
   background-image: radial-gradient(

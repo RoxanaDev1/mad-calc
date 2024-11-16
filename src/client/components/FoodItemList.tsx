@@ -55,7 +55,8 @@ const FoodItemListContainer = styled.div`
   flex-wrap: wrap;
   @media (max-width: 963px) {
     background-color: lightskyblue;
-    font-size: 25px;
+    font-size: 15px;
+    width: fit-content;
   }
 `;
 
@@ -68,7 +69,7 @@ const NutritionListContainer = styled.div`
 
 const DeleteFoodItem = styled.button`
   color: #fff;
-  padding: 15px 25px;
+  padding: 5px 15px;
   border-radius: 100px;
   background-color: rgb(67, 166, 205);
   background-image: radial-gradient(
