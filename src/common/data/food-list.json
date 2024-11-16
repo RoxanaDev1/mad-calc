@@ -414,6 +414,18 @@
               "amount": 5
             }
           ]
+        },
+        {
+          "name": "Whipped Cream",
+          "id": "4500",
+          "danish": "Piskefløde",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 363,
+            "fat": 38,
+            "carbs": 3.2,
+            "protein": 2.1
+          }
         }
       ]
     },
@@ -468,6 +480,30 @@
             "fat": 1.6,
             "carbs": 72,
             "protein": 10.5
+          }
+        },
+        {
+          "name": "Sugar",
+          "id": "55",
+          "danish": "Sukker",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 400,
+            "fat": 0,
+            "carbs": 100,
+            "protein": 0
+          }
+        },
+        {
+          "name": "Almonds",
+          "id": "56",
+          "danish": "Mandler",
+          "nutrition": {
+            "measureBy": "g",
+            "calories": 583,
+            "fat": 45,
+            "carbs": 20,
+            "protein": 19
           }
         }
       ]
